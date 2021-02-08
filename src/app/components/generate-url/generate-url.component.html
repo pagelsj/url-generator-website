@@ -1,7 +1,10 @@
 <section class="generate-url-component">
   <header>New readable URL</header>
 
-  <input type="text" placeholder="Url">
-  <a href="#" class="btn">Generate new URL</a>
+  <form [formGroup]="urlForm" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Url*" formControlName="url">
+    <button type="submit" class="btn" [disabled]="!urlForm.valid">Generate new URL</button>
+
+  </form>
 
 </section>

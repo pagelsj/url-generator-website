@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HomePageComponent } from './home-page.component';
 
@@ -19,6 +20,7 @@ describe('HomePageComponent', () => {
         GenerateUrlComponent
       ],
       imports: [
+        ReactiveFormsModule,
         UrlListModule
       ]
     })
