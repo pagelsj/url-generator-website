@@ -7,11 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UrlListComponent implements OnInit {
   @Input() viewAllLink: boolean = false;
+  public title: string = 'All URLs';
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.viewAllLink)
+    this.setTitle();
+  }
+
+  setTitle(): void {
+    if(!!this.viewAllLink)
+      this.title = 'Latest URLs';
   }
 
 }
