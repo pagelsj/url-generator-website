@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { RetrieveUrlsService } from '../../services/index';
+
 
 @Component({
   selector: 'app-url-list',
@@ -7,17 +9,30 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UrlListComponent implements OnInit {
   @Input() viewAllLink: boolean = false;
-  public title: string = 'All URLs';
+  @Input() resultLimit: number | boolean = false;
 
-  constructor() { }
+  public title: string = 'All URLs';
+  public urlList: any;
+
+  constructor(
+    private retrieveUrls: RetrieveUrlsService
+  ) { }
 
   ngOnInit(): void {
     this.setTitle();
+    this.loadUrlList();
   }
 
   setTitle(): void {
     if(!!this.viewAllLink)
-      this.title = 'Latest URLs';
+      this.title = 'Example URLs';
+  }
+
+  loadUrlList() {
+    this.retrieveUrls.getUrls(this.resultLimit)
+      .subscribe(resp => {
+          this.urlList = resp;
+        })
   }
 
 }

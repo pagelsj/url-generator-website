@@ -18,6 +18,7 @@ import { UrlValidator } from '../../validators/index';
 export class GenerateUrlComponent implements OnInit {
   // Creating FormGroup to ensure its easier to add fields later if needed.
   public urlForm: FormGroup;
+  public newUrl: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,7 +36,7 @@ export class GenerateUrlComponent implements OnInit {
   onSubmit() {
     this.newUrlService.saveUrl(this.urlForm.value)
       .subscribe(resp => {
-        alert("added");
+        this.newUrl = resp;
       });
     console.log(this.urlForm.value);
   }

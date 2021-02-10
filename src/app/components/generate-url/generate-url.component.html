@@ -5,6 +5,9 @@
     <input type="text" placeholder="Url*" formControlName="url">
     <button type="submit" class="btn" [disabled]="!urlForm.valid">Generate new URL</button>
 
+    <p class="new-url" *ngIf="newUrl">
+      <em><strong>New url:</strong> {{newUrl.newUrl}}</em>
+    </p>
   </form>
 
 </section>

@@ -1,0 +1,12 @@
+@import "../../../styling/variables";
+
+.generate-url-component {
+
+  .new-url {
+    margin-top: $padding/2;
+    margin-bottom: - $padding/2;
+  }
+  strong {
+    margin-right: $padding/2;
+  }
+}
