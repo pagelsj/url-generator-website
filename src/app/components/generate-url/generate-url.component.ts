@@ -6,6 +6,8 @@ import {
   Validators
 } from '@angular/forms';
 
+import { NewUrlService } from '../../services/index';
+
 import { UrlValidator } from '../../validators/index';
 
 @Component({
@@ -19,6 +21,7 @@ export class GenerateUrlComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private newUrlService: NewUrlService
   ) {
     // Define the form fields.
     this.urlForm = this.formBuilder.group({
@@ -30,6 +33,10 @@ export class GenerateUrlComponent implements OnInit {
   }
 
   onSubmit() {
+    this.newUrlService.saveUrl(this.urlForm.value)
+      .subscribe(resp => {
+        alert("added");
+      });
     console.log(this.urlForm.value);
   }
 

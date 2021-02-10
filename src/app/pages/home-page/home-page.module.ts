@@ -9,6 +9,8 @@ import {
   UrlListModule
 } from '../../components/index';
 
+import { NewUrlService } from '../../services/index';
+
 import { HomePageComponent } from './home-page.component';
 
 const routes: Routes = [
@@ -33,6 +35,7 @@ const routes: Routes = [
     HomePageComponent
   ],
   providers: [
+    NewUrlService
   ]
 })
 export class HomePageModule{ }
