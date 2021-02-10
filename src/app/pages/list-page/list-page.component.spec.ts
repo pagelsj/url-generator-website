@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { ListPageComponent } from './list-page.component';
 import {
@@ -13,7 +14,7 @@ describe('ListPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ListPageComponent ],
-      imports: [ UrlListModule ]
+      imports: [ UrlListModule, HttpClientTestingModule ]
     })
     .compileComponents();
   });

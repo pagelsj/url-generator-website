@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
 
 import { UrlListComponent } from './url-list.component';
@@ -10,6 +11,9 @@ describe('UrlListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule
+      ],
       declarations: [ UrlListComponent ]
     })
     .compileComponents();
@@ -45,14 +49,14 @@ describe('UrlListComponent', () => {
       var viewMoreLink = fixture.debugElement.query(By.css('.view-more'));
       expect(viewMoreLink).not.toBeNull();
     });
-    it('should change the title to contain "Latest URLs" set to true', () => {
+    it('should change the title to contain "Example URLs" set to true', () => {
       component.viewAllLink = true;
       component.setTitle();
       var titleText = fixture.debugElement.query(By.css('header')).nativeElement;
 
       fixture.detectChanges();
 
-      expect(headerElement.textContent).toEqual("Latest URLs");
+      expect(headerElement.textContent).toEqual("Example URLs");
     });
   });
 });
