@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -15,7 +15,7 @@ import { UrlValidator } from '../../validators/index';
   templateUrl: './generate-url.component.html',
   styleUrls: ['./generate-url.component.scss']
 })
-export class GenerateUrlComponent implements OnInit {
+export class GenerateUrlComponent {
   // Creating FormGroup to ensure its easier to add fields later if needed.
   public urlForm: FormGroup;
   public newUrl: any;
@@ -30,15 +30,11 @@ export class GenerateUrlComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-
   onSubmit() {
     this.newUrlService.saveUrl(this.urlForm.value)
       .subscribe(resp => {
         this.newUrl = resp;
       });
-    console.log(this.urlForm.value);
   }
 
 }
